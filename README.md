@@ -1,6 +1,6 @@
 # Stock Return Predictor (LSTM)
 
-**(https://stock-return-predictor-4e2w4cjh9mibdywgk8iwse.streamlit.app/)
+https://stock-return-predictor-4e2w4cjh9mibdywgk8iwse.streamlit.app/
 
 An LSTM-based model that predicts next-day stock returns from price-derived features (returns, moving averages). Includes rigorous backtesting against a naive baseline and statistical significance testing.
 
