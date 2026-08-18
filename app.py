@@ -7,9 +7,8 @@ import torch
 import torch.nn as nn
 import pickle
 
-device = torch.device('cpu')  # Streamlit Cloud has no GPU
+device = torch.device('cpu')  
 
-# --- Model definition (must match your training code exactly) ---
 class PredictionModel(nn.Module):
     def __init__(self, input_dim, hidden_dim, num_layers, output_dim, dropout=0.2):
         super(PredictionModel, self).__init__()
@@ -47,7 +46,7 @@ def reconstruct_prices(starting_price, returns):
         prices.append(prices[-1] * (1 + r))
     return prices
 
-# --- Load saved model + scaler once ---
+# Load saved model + scaler once
 @st.cache_resource
 def load_model_and_scaler():
     feature_cols = ['Return', 'MA_7', 'MA_30']
@@ -60,7 +59,7 @@ def load_model_and_scaler():
 
 model, scaler, feature_cols = load_model_and_scaler()
 
-# --- Streamlit UI ---
+# Streamlit UI 
 st.title("Stock Return Predictor (LSTM)")
 st.write("Predicts next-day stock returns using an LSTM trained on price-derived features. "
          "Note: directional accuracy is close to a naive baseline (~51-52%), reflecting the "
